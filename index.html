@@ -21,11 +21,14 @@
     <h1>Gem store</h1>
     <hr>
 
-    <div ng-controller="StoreController as store">
-      <h1> {{store.product.name}} </h1>
-      <h2> ${{store.product.price}} </h2>
-      <p> {{store.product.description}} </p>
-      <button ng-show="store.product.canPurchase" ng-hide="store.product.soldOut">Add to Cart</button>
+    <div ng-controller="StoreController as store" ng-hide="store.product.soldOut">
+      <div ng-repeat="product in store.products">
+        <h1> {{product.name}} </h1>
+        <h2> ${{product.price}} </h2>
+        <p> {{product.description}} </p>
+        <button ng-show="store.product.canPurchase">Add to Cart</button>
+        <hr>
+      </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
