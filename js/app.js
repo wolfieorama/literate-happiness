@@ -21,8 +21,8 @@
       canPurchase: true,
       soldOut: false,
       images: [
-        "assets/image3.jpg",
-        "assets/image4.jpg"
+        "assets/image4.jpg",
+        "assets/image3.jpg"
       ],
     }
   ];

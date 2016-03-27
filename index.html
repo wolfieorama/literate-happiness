@@ -17,18 +17,25 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <h1>Gem store</h1>
+  <body class="container">
+    <h1 style="text-align: center">Gem store</h1>
     <hr>
-
     <div ng-controller="StoreController as store" ng-hide="store.product.soldOut">
-      <div ng-repeat="product in store.products">
-        <h1> {{product.name}} </h1>
-        <h2> {{product.price | currency }} </h2>
-        <p> {{product.description}} </p>
-        <img ng-src="{{product.images[0]}}"/>
-        <button ng-show="store.product.canPurchase">Add to Cart</button>
-        <hr>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <div class="list-group" ng-repeat="product in store.products">
+            <h2>
+              {{product.name}}
+              <em class="pull-right"> {{product.price | currency }} </em><br>
+            </h2>
+            <div class="gallery">
+            <img ng-src="{{product.images[0]}}"/>
+          </div>
+            <em> {{product.description}}</em>
+            <button ng-show="store.product.canPurchase">Add to Cart</button>
+            <hr>
+          </div>
+        </div>
       </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
