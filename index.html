@@ -23,17 +23,38 @@
     <div ng-controller="StoreController as store" ng-hide="store.product.soldOut">
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
-          <div class="list-group" ng-repeat="product in store.products">
-            <h2>
-              {{product.name}}
-              <em class="pull-right"> {{product.price | currency }} </em><br>
-            </h2>
-            <div class="gallery">
-            <img ng-src="{{product.images[0]}}"/>
-          </div>
-            <em> {{product.description}}</em>
-            <button ng-show="store.product.canPurchase">Add to Cart</button>
-            <hr>
+          <div class="panel panel-body">
+            <div class="list-group" ng-repeat="product in store.products">
+              <h2>
+                {{product.name}}
+                <em class="pull-right"> {{product.price | currency }} </em><br>
+              </h2>
+              <div class="gallery">
+              <img ng-src="{{product.images[0]}}"/>
+            </div>
+            <button ng-show="product.canPurchase">Add to Cart</button>
+            <section>
+              <ul class="nav nav-pills">
+                <li><a href ng-click = "tab = 1">Description</a></li>
+                <li><a href ng-click = "tab = 2">Specifications</a></li>
+                <li><a href ng-click = "tab = 3">Reviews</a></li>
+              </ul>
+              {{ tab }}
+            </section>
+            <div class="panel">
+              <h4>Description</h4>
+              <blockquote>{{product.description}}</blockquote>
+            </div>
+            <div class="panel">
+              <h4>Specifications</h4>
+              <blockquote></blockquote>
+            </div>
+            <div class="panel">
+              <h4>Reviews</h4>
+              <blockquote></blockquote>
+            </div>
+              <hr>
+            </div>
           </div>
         </div>
       </div>
